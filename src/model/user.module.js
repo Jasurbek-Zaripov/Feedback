@@ -1,4 +1,5 @@
-import { Schema, model } from 'mongoose';
+import pkg from 'mongoose';
+const { Schema, model } = pkg;
 
 const schema = new Schema({
     username: { type: 'string', required: [true, 'Username empty!'], maxlength: [50, 'Username is too long!'], minlength: [4, 'Username is too short!'] },

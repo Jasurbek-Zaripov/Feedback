@@ -1,4 +1,5 @@
-import { Schema, model } from 'mongoose';
+import pkg from 'mongoose';
+const { Schema, model } = pkg;
 
 const schema = new Schema({
     author: { type: 'string', required: [true, 'Author empty!'] },
@@ -15,3 +16,5 @@ const schema = new Schema({
         ]
     }
 });
+const commentModel = model('Comment', schema);
+export { commentModel };

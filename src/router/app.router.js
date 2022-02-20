@@ -1,25 +1,20 @@
-import { AuthRouter } from './auth.router.js';
+import { AuthController } from '../controller/auth.controller.js';
 import { Router } from 'express';
 
 
 class AppRouter {
-	constructor() {
-		this.authRouter = new AuthRouter();
+	constructor(authController = AuthController) {
+		this.authController = authController;
 		this.router = Router();
 		this.createRout();
 	}
 
 	createRout() {
-		this.router.get('/auth/Register', this.authRouter.Register);
+		this.router.post('/auth/register', this.authController.Register);
 	}
-
-	getRouter() {
-		return this.router;
-	}
-
 }
 
-let appRouter = new AppRouter();
+let appRouter = new AppRouter(new AuthController());
 
-export default appRouter.getRouter();
+export default appRouter.router;
 

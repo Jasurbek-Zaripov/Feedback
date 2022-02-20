@@ -11,13 +11,16 @@ app.use(express.json());
 // routers
 app.use(router);
 
-//connect
-; (async () => {
-    try {
-        await dbConfig();
-        app.listen(PORT, () => console.log('http://localhost:' + PORT));
-    } catch (error) {
-        console.error(error);
-        process.exit(1);
-    }
-})();
+app.use((err, req, res, next) => {
+    res.json({ a: err.message, b: err.stack, c: err.type });
+})
+    //connect
+    ; (async () => {
+        try {
+            await dbConfig();
+            app.listen(PORT, () => console.log('http://localhost:' + PORT));
+        } catch (error) {
+            console.error(error);
+            process.exit(1);
+        }
+    })();
