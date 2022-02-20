@@ -1,11 +1,15 @@
 import express from 'express';
 import dbConfig from './src/config/db-config.js';
+import router from './src/router/index.router.js'
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 //middleware
 app.use(express.json());
+
+// routers
+app.use(router)
 
 //connect
 (async () => {
