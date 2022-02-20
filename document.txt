@@ -1,0 +1,9 @@
+POST /register
+        - username
+        - avatar
+        - nikname
+        - profession
+
+POST /login
+        - username
+        - password
