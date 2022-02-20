@@ -1,21 +1,21 @@
 class AuthRouter {
-	async Register ( req, res , next){
+	async Register(req, res, next) {
 		try {
 
-		}catch(error){
-			next(error)
+		} catch (error) {
+			next(error);
 		}
 	}
 
-	async Login ( req, res , next){
+	async Login(req, res, next) {
 		try {
 
-		}catch(error){
-			next(error)
+		} catch (error) {
+			next(error);
 		}
 	}
 }
 
 export {
 	AuthRouter
-}
+};

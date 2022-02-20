@@ -1,16 +1,16 @@
-import { AuthRouter} from './auth.router.js'
+import { AuthRouter } from './auth.router.js';
 
 
 class AppRouter {
-	constructor (){
-		this.authRouter = new AuthRouter()
+	constructor() {
+		this.authRouter = new AuthRouter();
 	}
 
-	
+
 }
 
-let appRouter = new AppRouter()
+let appRouter = new AppRouter();
 
-export  {
+export {
 	appRouter
-}
+};
