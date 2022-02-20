@@ -4,22 +4,22 @@ import { Router } from 'express';
 
 class AppRouter {
 	constructor() {
-		this.authRouter = new AuthRouter()
-		this.router = Router()
-		this.createRout()
+		this.authRouter = new AuthRouter();
+		this.router = Router();
+		this.createRout();
 	}
 
-	createRout(){
-       this.router.get('/auth/Register', this.authRouter.Register);
+	createRout() {
+		this.router.get('/auth/Register', this.authRouter.Register);
 	}
 
-	getRouter () {
-		return this.router
+	getRouter() {
+		return this.router;
 	}
 
 }
 
 let appRouter = new AppRouter();
 
-export default appRouter.getRouter()
+export default appRouter.getRouter();
 

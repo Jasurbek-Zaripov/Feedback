@@ -9,15 +9,15 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 // routers
-app.use(router)
+app.use(router);
 
-    //connect
-    ; (async () => {
-        try {
-            await dbConfig();
-            app.listen(PORT, () => console.log('http://localhost:' + PORT));
-        } catch (error) {
-            console.error(error);
-            process.exit(1);
-        }
-    })();
+//connect
+; (async () => {
+    try {
+        await dbConfig();
+        app.listen(PORT, () => console.log('http://localhost:' + PORT));
+    } catch (error) {
+        console.error(error);
+        process.exit(1);
+    }
+})();
