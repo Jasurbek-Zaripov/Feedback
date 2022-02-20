@@ -1,6 +1,7 @@
 class AuthRouter {
 	async Register(req, res, next) {
 		try {
+			res.send("hello")
 
 		} catch (error) {
 			next(error);

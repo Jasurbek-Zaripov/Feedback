@@ -1,6 +1,6 @@
 import express from 'express';
 import dbConfig from './src/config/db-config.js';
-import router from './src/router/index.router.js';
+import router from './src/router/app.router.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
