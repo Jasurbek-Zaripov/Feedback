@@ -3,18 +3,19 @@ import { Router } from 'express';
 
 
 class AppRouter {
-	constructor(authController = AuthController) {
-		this.authController = authController;
+	constructor() {
+		this.authController = new AuthController();
 		this.router = Router();
 		this.createRout();
 	}
 
 	createRout() {
 		this.router.post('/auth/register', this.authController.Register);
+		this.router.post('/auth/login', this.authController.Login);
 	}
 }
 
-let appRouter = new AppRouter(new AuthController());
+let appRouter = new AppRouter();
 
 export default appRouter.router;
 

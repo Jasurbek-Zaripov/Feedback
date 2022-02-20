@@ -9,8 +9,8 @@ class AuthController {
                 return file({ file: req.file, body: req.body });
             }));
 
-            let result = await authModule.WriteUser(data);
-            res.send({ result });
+            let token = await authModule.WriteUser(data);
+            return res.json({ success: true, messages: [], token });
         } catch (error) {
             next(error);
         }
@@ -18,9 +18,11 @@ class AuthController {
 
     async Login(req, res, next) {
         try {
-
+            console.log(req.body);
+            const token = await authModule.checkUser(req.body);
+            return res.json({ success: true, messages: [], token });
         } catch (error) {
-            next(error);
+            return next(error);
         }
     }
 }

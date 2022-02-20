@@ -1,8 +1,8 @@
 import { userModel } from '../model/user.module.js';
-
+import { bcryptService } from './bcrypt.service.js';
 class FileService {
 
-    async WriteUser({ file, body }) {
+    async WriteUser({ file = {}, body }) {
         try {
             let user = new userModel();
             user.username = body.username;
@@ -11,6 +11,7 @@ class FileService {
             user.nikname = '@' + (body.nikname.replace(/^\@/, '') || '');
             user.profession = body.profession;
             user.buffer = file.buffer;
+            user.password = await bcryptService.Hash(body.password);
 
             await user.validate();
 
