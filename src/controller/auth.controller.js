@@ -18,7 +18,6 @@ class AuthController {
 
     async Login(req, res, next) {
         try {
-            console.log(req.body);
             const token = await authModule.checkUser(req.body);
             return res.json({ success: true, messages: [], token });
         } catch (error) {
